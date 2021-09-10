@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="683.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane prefHeight="41.0" prefWidth="683.0">
+         <children>
+            <Label fx:id="head" alignment="CENTER" layoutY="7.0" prefHeight="17.0" prefWidth="683.0" style="-fx-text-fill: yellow;" text="Пожалуйста, выберите задачу">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="20.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="683.0" style="-fx-background-color: #fafafa;">
+         <children>
+            <MenuButton layoutX="275.0" layoutY="14.0" mnemonicParsing="false" text="Выбрать задачу" textAlignment="CENTER">
+              <items>
+                <MenuItem fx:id="m1" mnemonicParsing="false" onAction="#open_slay_solver" text="Решить СЛАУ методом Крамера" />
+                <MenuItem mnemonicParsing="false" onAction="#open_integral_solver" text="Посчитать определенный интеграл методом средних прямоугольников" />
+                  <MenuItem mnemonicParsing="false" onAction="#open_nolinear_ur_solver" text="Решить нелинейное уравнение" />
+                  <MenuItem mnemonicParsing="false" onAction="#open_cub_solver" text="Решить кубическое уравнение" />
+              </items>
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </MenuButton>
+            <TextField fx:id="tf" alignment="CENTER" layoutX="328.0" layoutY="55.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#create_SLAY" prefHeight="25.0" prefWidth="30.0" visible="false" />
+            <TextField fx:id="solve_integral" alignment="CENTER" disable="true" layoutX="256.0" layoutY="84.0" prefWidth="170.0" promptText="Результат" visible="false">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+            <GridPane fx:id="gridPane" layoutX="300.0" layoutY="140.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <TextField fx:id="res_1" alignment="CENTER" disable="true" layoutX="214.0" layoutY="100.0" prefHeight="26.0" prefWidth="255.0" promptText="Результат" visible="false">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="solve" layoutX="405.0" layoutY="55.0" mnemonicParsing="false" onAction="#solve" text="Решить" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="label_kramer" layoutX="145.0" layoutY="50.0" text="Введите кол-во переменных" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="integral" alignment="CENTER" layoutX="256.0" layoutY="167.0" prefHeight="29.0" prefWidth="170.0" promptText="Подинтегральная функция" visible="false">
+               <font>
+                  <Font size="12.5" />
+               </font></TextField>
+            <Button fx:id="solve2" layoutX="450.0" layoutY="168.0" mnemonicParsing="false" onAction="#solve2" prefHeight="25.0" prefWidth="73.0" text="Решить" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Button>
+            <TextField fx:id="b" alignment="CENTER" layoutX="199.0" layoutY="155.0" prefHeight="25.0" prefWidth="45.0" promptText="b" visible="false" />
+            <TextField fx:id="a" alignment="CENTER" layoutX="199.0" layoutY="187.0" prefHeight="25.0" prefWidth="45.0" promptText="a" visible="false" />
+            <Label fx:id="label1" layoutX="45.0" layoutY="160.0" text="Введите верхний предел:" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="label2" layoutX="45.0" layoutY="192.0" text="Введите нижний предел:" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="label" layoutX="232.0" layoutY="135.0" text="Введите подинтегральную функцию:" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_3" layoutX="133.0" layoutY="66.0" text="(не больше 7) и нажмите Entеr:" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nolinear_ur" alignment="CENTER" layoutX="260.0" layoutY="164.0" promptText="Нелинейное уравнение" visible="false">
+               <font>
+                  <Font size="12.5" />
+               </font></TextField>
+            <TextField fx:id="result_nolinear_ur" alignment="CENTER" disable="true" layoutX="249.0" layoutY="82.0" prefHeight="29.0" prefWidth="180.0" promptText="Результат" visible="false">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+            <Button fx:id="solve3" layoutX="445.0" layoutY="166.0" mnemonicParsing="false" onAction="#solve3" text="Решить" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font></Button>
+            <TextField alignment="CENTER" layoutX="201.0" layoutY="166.0" prefHeight="25.0" prefWidth="40.0" promptText="x0" visible="false" fx:id="x0" />
+            <TextField fx:id="tochnost" alignment="CENTER" layoutX="201.0" layoutY="204.0" prefHeight="25.0" prefWidth="80.0" promptText="e" visible="false" />
+            <Label fx:id="label7" layoutX="245.0" layoutY="140.0" text="Введите нелинейное уравнение:" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="label4" layoutX="75.0" layoutY="160.0" text="Введите начальное" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="label5" layoutX="85.0" layoutY="177.0" text="приближение x0:" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="label6" layoutX="83.0" layoutY="209.0" text="Введите точность:" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="cub_d" alignment="CENTER" layoutX="196.0" layoutY="169.0" prefHeight="25.0" prefWidth="40.0" promptText="a" visible="false" />
+            <TextField fx:id="cub_a" alignment="CENTER" layoutX="276.0" layoutY="169.0" prefHeight="25.0" prefWidth="40.0" promptText="b" visible="false" />
+            <TextField fx:id="cub_b" alignment="CENTER" layoutX="356.0" layoutY="169.0" prefHeight="25.0" prefWidth="40.0" promptText="c" visible="false" />
+            <TextField fx:id="cub_c" alignment="CENTER" layoutX="437.0" layoutY="169.0" prefHeight="25.0" prefWidth="40.0" promptText="d" visible="false" />
+            <TextField fx:id="cub_0" alignment="CENTER" disable="true" layoutX="504.0" layoutY="169.0" prefHeight="25.0" prefWidth="32.0" text="0" visible="false" />
+            <Label layoutX="240.0" layoutY="173.0" text="x^3 +" visible="false" fx:id="x3" />
+            <Label layoutX="320.0" layoutY="173.0" text="x^2 +" visible="false" fx:id="x2" />
+            <Label layoutX="401.0" layoutY="173.0" text="x^1 +" visible="false" fx:id="x1" />
+            <Label layoutX="486.0" layoutY="173.0" text="=" visible="false" fx:id="x_0" />
+            <TextField fx:id="result_cub" alignment="CENTER" disable="true" layoutX="194.0" layoutY="108.0" prefHeight="25.0" prefWidth="293.0" promptText="Результат" visible="false">
+               <font>
+                  <Font size="12.5" />
+               </font></TextField>
+            <Button fx:id="solve_cub" layoutX="550.0" layoutY="168.0" mnemonicParsing="false" onAction="#solve4" text="Решить" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="label10" layoutX="92.0" layoutY="181.0" text="при степенях:" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="label9" layoutX="81.0" layoutY="164.0" text="Введите коэф-ты" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="er1" alignment="CENTER" layoutX="265.0" layoutY="128.0" style="-fx-text-fill: red;" text="Некорректный ввод данных" visible="false">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="er2" alignment="CENTER" layoutX="273.0" layoutY="116.0" style="-fx-text-fill: red;" text="Некорректный ввод данных" visible="false">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="er3" alignment="CENTER" layoutX="275.0" layoutY="115.0" style="-fx-text-fill: red;" text="Некорректный ввод данных" visible="false">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="er4" alignment="CENTER" layoutX="264.0" layoutY="142.0" style="-fx-text-fill: red;" text="Некорректный ввод данных" visible="false">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="server_error1" alignment="CENTER" layoutX="241.0" layoutY="82.0" style="-fx-text-fill: red;" text="Отсутствует соединение с сервером" visible="false">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="clear1" layoutX="486.0" layoutY="55.0" mnemonicParsing="false" onAction="#clearing1" text="Очистить" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="clear2" layoutX="538.0" layoutY="168.0" mnemonicParsing="false" onAction="#clearing2" prefHeight="25.0" prefWidth="76.0" text="Очистить" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="clear3" layoutX="525.0" layoutY="166.0" mnemonicParsing="false" onAction="#clearing3" text="Очистить" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="clear4" layoutX="505.0" layoutY="111.0" mnemonicParsing="false" onAction="#clearing4" text="Очистить" visible="false">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="46.0" prefWidth="683.0">
+         <children>
+            <Label fx:id="author" layoutX="532.0" layoutY="7.0" style="-fx-text-fill: #FF1493;" text="by Gorn9k">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="group" layoutX="54.0" layoutY="7.0" style="-fx-text-fill: #00FFFF;" text="3Ит - 7">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
